@@ -18,10 +18,10 @@ oled_rotation_t oled_init_user(oled_rotation_t rotation) {
 bool left_display(void) {
     switch (get_highest_layer(layer_state)) {
         case 0:
-            oled_write_P(PSTR("OS: Mac"), false);
+            oled_write_P(PSTR("WIN"), false);
             break;
         case 1:
-            oled_write_P(PSTR("OS: Win"), false);
+            oled_write_P(PSTR("MAC"), false);
             break;
     }
 
@@ -30,7 +30,7 @@ bool left_display(void) {
 
 bool right_display(void) {
 
-    return true;
+    // return true;
     switch (get_highest_layer(layer_state)) {
         case 0:
         case 1:
