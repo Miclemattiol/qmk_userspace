@@ -1,7 +1,7 @@
 {
     "config": {
         "encoder": {
-            "enabled": true
+            "enabled": false
         },
         "features": {
             "oled": true,
@@ -52,10 +52,10 @@
         ]
     ],
     "encoders": [
-        [{"ccw": "KC_DOWN", "cw": "KC_UP"}  , {"ccw": "KC_VOLD", "cw": "KC_VOLU"}],
-        [{"ccw": "_______", "cw": "_______"}, {"ccw": "_______", "cw": "_______"}],
-        [{"ccw": "MS_WHLL", "cw": "MS_WHLR"}, {"ccw": "KC_MPRV", "cw": "KC_MNXT"}],
-        [{"ccw": "_______", "cw": "_______"}, {"ccw": "_______", "cw": "_______"}],
-        [{"ccw": "_______", "cw": "_______"}, {"ccw": "_______", "cw": "_______"}]
+        [{"ccw": "KC_DOWN", "cw": "KC_UP"}  ],
+        [{"ccw": "_______", "cw": "_______"}],
+        [{"ccw": "MS_WHLL", "cw": "MS_WHLR"}],
+        [{"ccw": "_______", "cw": "_______"}],
+        [{"ccw": "_______", "cw": "_______"}]
     ]
 }

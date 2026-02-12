@@ -2,7 +2,7 @@
 /* Copyright 2023 splitkb.com <support@splitkb.com> */
 
 #pragma once
-#define NUM_ENCODERS_PER_SIDE 2
+
 #define ENCODER_RESOLUTION 2
 
 #define VIAL_KEYBOARD_UID {0xF6, 0x8C, 0xA5, 0xE0, 0xCE, 0x3B, 0xEB, 0x8F}
