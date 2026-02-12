@@ -44,7 +44,7 @@
                 "CONVERT_TO": "rp2040_ce"
             }
         ],
-                [
+        [
             "splitkb/kyria/rev3",
             "debug",
             {
@@ -218,7 +218,7 @@
                 "TARGET": "splitkb_aurora_sweep_rev1_debug_elite_c"
             }
         ],
-                [
+        [
             "splitkb/kyria/rev3",
             "debug",
             {
@@ -265,6 +265,8 @@
                 "BOOTLOADER": "caterina",
                 "TARGET": "splitkb_aurora_sweep_rev1_debug_pro_micro"
             }
-        ]
+        ],
+        ["splitkb/aurora/lily58/rev1", "miclemattiol"],
+        ["splitkb/aurora/lily58/rev1", "micle2"]
     ]
 }
