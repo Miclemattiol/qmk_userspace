@@ -1,5 +1,10 @@
+#include <stdio.h>
 #include "action_layer.h"
+#include "modifiers.h"
 #include "oled_driver.h"
+#include "quantum.h"
+#include "wpm.h"
+
 #include QMK_KEYBOARD_H
 
 
@@ -15,52 +20,43 @@ oled_rotation_t oled_init_user(oled_rotation_t rotation) {
     return rotation;
 }
 
-bool left_display(void) {
-    switch (get_highest_layer(layer_state)) {
+char* default_layer_switch(char* win, char* mac) {
+    switch (get_highest_layer(default_layer_state)) {
         case 0:
-            oled_write_P(PSTR("WIN"), false);
-            break;
+            return win;
         case 1:
-            oled_write_P(PSTR("MAC"), false);
-            break;
+            return mac;
+        default:
+            return "";
     }
+}
 
-    return true;
+bool left_display(void) {
+
+    uint8_t modifiers = get_mods();
+    oled_write_P(PSTR("SHIFT"), (modifiers & MOD_MASK_SHIFT));
+    oled_write_P(PSTR("CTRL\n"), (modifiers & MOD_MASK_CTRL));
+    oled_write_P(PSTR("ALT\n"), (modifiers & MOD_MASK_ALT));
+    oled_write_P(PSTR(default_layer_switch("WIN\n", "CMD\n")), (modifiers & MOD_MASK_GUI));
+    return false;
 }
 
 bool right_display(void) {
 
-    // return true;
-    switch (get_highest_layer(layer_state)) {
-        case 0:
-        case 1:
-            oled_write_P(PSTR("Base\n"), false);
-            break;
-        case 2:
-            oled_write_P(PSTR("Symbols\n"), false);
-            break;
-        case 3:
-            oled_write_P(PSTR("Numbers\n"), false);
-            break;
-        case 4:
-            oled_write_P(PSTR("RGB\n"), false);
-            break;
-        default:
-            oled_write_P(PSTR("Undef\n"), false);
-    }
+    oled_write_P(PSTR(" WPM\n "), false);
+    oled_write(get_u8_str(get_current_wpm(), '0'), false);
 
-    uint8_t modifiers = get_mods();
-    oled_write_P(PSTR("\nMods: "), false);
-    oled_write_P(PSTR("S"), (modifiers & MOD_MASK_SHIFT));
-    oled_write_P(PSTR("C"), (modifiers & MOD_MASK_CTRL));
-    oled_write_P(PSTR("A"), (modifiers & MOD_MASK_ALT));
-    oled_write_P(PSTR("G"), (modifiers & MOD_MASK_GUI));
+    oled_write(PSTR("\n\n"), false);
 
-    return true;
+    return false;
 }
 
 bool oled_task_user(void) {
     oled_clear();
+
+    oled_write_P(PSTR(default_layer_switch(" WIN", " MAC")), false);
+    oled_write_P(PSTR("\n\n"), false);
+
     return is_keyboard_left() ? left_display() : right_display();
 }
 

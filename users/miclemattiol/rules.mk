@@ -4,4 +4,11 @@ SRC += power_led.c
 VIA_ENABLE = yes
 VIAL_ENABLE = yes
 
+SPLIT_OLED_ENABLE = yes
+SPLIT_LAYER_STATE_ENABLE = yes
+SPLIT_OLED_UPDATE = yes
+SPLIT_LED_STATE_ENABLE = yes
+
+WPM_ENABLE = yes
+
 CONVERT_TO = liatris
