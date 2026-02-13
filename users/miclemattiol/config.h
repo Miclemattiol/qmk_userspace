@@ -2,6 +2,12 @@
 #define SPLIT_LAYER_STATE_ENABLE
 #define SPLIT_LED_STATE_ENABLE
 
-#define OLED_UPDATE_INTERVAL 100
+#define OLED_UPDATE_INTERVAL 50
 
 #define SPLIT_OLED_UPDATE = yes
+
+#define N_LAYER 3
+#define WIN_LAYER 0
+#define MAC_LAYER 1
+#define GAMING_LAYER 2
+
