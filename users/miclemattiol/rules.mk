@@ -1,8 +1,6 @@
 SRC += oled.c
 SRC += power_led.c
-
-VIA_ENABLE = yes
-VIAL_ENABLE = yes
+SRC += keylog.c
 
 SPLIT_OLED_ENABLE = yes
 SPLIT_LAYER_STATE_ENABLE = yes
